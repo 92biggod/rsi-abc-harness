@@ -1,0 +1,5 @@
+实验名,状态,创建者,创建时间,运行时长,任务,轮数,训练器,baseline_rmse,best_rmse,best_round,best_checkpoint_sha256,import_type,备注
+bearing-rul-optimized-import-20261127-115511,FINISHED,jpc25,2026/11/27 10:55:15,7秒,B-bearing-rul-regression,-,-,681.1598326043113,650.1219,2,sha256:4798c31912c64061e6e3c3b2b78a05a3cad7213cfe72e2fb5dcf42caf6f50def,local_optimized_record_replay,历史导入 对应旧包 51 条逐 epoch 日志
+bearing-rul-optimized-20261125-230647,FINISHED,jpc25,2026/11/25 22:06:55,4分钟22秒,B-bearing-rul-regression,3,baselines.train_swanlab.train_run (direct import),681.1598326043113,650.1219,-,-,-,旧提交包内原始实验
+bearing-rul-harness-20261125-225436,FINISHED,jpc25,2026/11/25 21:54:39,19秒,B-bearing-rul-regression,3,baselines.train_swanlab.train_run via subprocess,681.1598326043112,668.2787,-,-,-,云端与下载记录一致
+bearing-rul-harness-20261124-210844,FINISHED,jpc25,2026/11/24 20:08:46,34秒,B-bearing-rul-regression,3,baselines.train_swanlab.train_run via subprocess,681.1598326043112,668.7688,-,-,-,首次 3 轮训练
