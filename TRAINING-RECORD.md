@@ -93,22 +93,16 @@ C 在 2 核 / 4 GiB（正式评测规格）下按墙钟自适应降为 3 成员�
 ## 5. 复现
 
 ```bash
-docker build -f src/integrated/Dockerfile -t zhixun-abc:0.3.0 src/
+# 镜像入口为 /app/harness.py，分发逻辑在 app/contest_submission.py
+docker build --platform linux/amd64 -t zhixun-abc:0.3.0 .
 docker run --rm zhixun-abc:0.3.0 describe      # 自检：打印三任务分发结果与入口
-docker save zhixun-abc:0.3.0 -o harness-abc-0.3.0.tar
+docker save -o harness-abc-0.3.0.tar zhixun-abc:0.3.0
 ```
 
-上表的逐轮轨迹由 `src/scripts/verify_train_continuity.py` 复现，运行方式：
-
-```bash
-# ROOT=/w 需要同时挂载官方 baseline 数据包与会话内 SDK（sdk/tests/support.py）
-docker run --rm --user root --entrypoint python -e VERIFY_ROUNDS=10 \
-    -v "$PWD:/w" -w /w zhixun-abc:0.3.0 src/scripts/verify_train_continuity.py B
-```
-
-该脚本依赖赛事方下发的 baseline 数据包与 SDK，按规则不在本仓库内分发，因此这条命令
-需要在本地补齐 `packages/` 与 `sdk/` 后才能执行；`describe` 一条不依赖任何外部数据，
-可直接验证镜像完整性。
+上表的逐轮轨迹由本地验收脚本跑出：它按平台协议模拟宿主，逐轮下发父检查点、
+用公开验证集现算候选分数、按「候选优于父才采纳」推进，并据此判定每一轮是否切换父检查点。
+该脚本依赖赛事方下发的 baseline 数据包与 SDK（`sdk/tests/support.py`），按规则不在本仓库内分发，
+因此仓库只提供镜像层面可复现的部分；`describe` 一条不依赖任何外部数据，可直接验证镜像完整性。
 
 C 的关键环境变量（缺省会导致只训完 1 个成员，RMSE 退到 46.1248）：
 
