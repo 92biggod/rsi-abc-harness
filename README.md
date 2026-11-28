@@ -80,9 +80,9 @@ docker save -o harness-abc-0.4.2.tar zhixun-abc:0.4.2
 
 逐轮父/候选分数、决策、耗时与两版对照见 **[TRAINING-RECORD.md](TRAINING-RECORD.md)**。
 
-- [交付版 0.4.2 平台试运行汇总](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
-- [0.4.1 联合方案逐轮记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
-- [B 任务 R12 三轮记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
+- [交付版 0.4.2 的 C 首轮训练预算对照](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
+- [0.4.1 联合方案本地逐轮复测](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
+- [B 任务 R12 三轮历史记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
 - [前期 B 任务优化（队友 `jpc25`）](https://swanlab.cn/@jpc25/cpu-b-rul-harness)
 
 ## 声明

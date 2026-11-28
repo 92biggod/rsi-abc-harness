@@ -1,9 +1,9 @@
 # 训练记录（0.4.2）
 
-- [交付版 0.4.2 平台试运行汇总](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
+- [交付版 0.4.2 的 C 首轮训练预算对照](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
 - [0.4.2 本地 2 核 / 4 GiB 十轮预检](https://swanlab.cn/@sxb/rsi-abc-harness/runs/q96vjrsk)
-- [0.4.1 联合方案逐轮记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
-- [B 任务 R12 三轮记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
+- [0.4.1 联合方案本地逐轮复测](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
+- [B 任务 R12 三轮历史记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
 - [前期 B 任务优化（队友 `jpc25`）](https://swanlab.cn/@jpc25/cpu-b-rul-harness)
 
 ---
@@ -101,7 +101,7 @@ A 十轮合计 55.6 秒，B 十轮合计 39.5 秒。
 
 ### 5.2 0.4.1 联合方案（A/B/C 十轮）
 
-0.4.1 的逐轮父/候选与决策记录：https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot
+[0.4.1 父模型、候选与逐轮决策的本地复测](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
 
 0.4.2 把 C 首轮的训练上限压到 200 epoch。v6 与 v7 两份回执中，三个任务的方案序列逐轮一致。
 
