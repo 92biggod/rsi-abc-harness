@@ -78,12 +78,16 @@ docker save -o harness-abc-0.4.2.tar zhixun-abc:0.4.2
 
 ## 训练记录
 
-逐轮父/候选分数、决策、耗时与两版对照见 **[TRAINING-RECORD.md](TRAINING-RECORD.md)**。
+逐轮父/候选分数、决策、耗时与两版对照见 **[TRAINING-RECORD.md](TRAINING-RECORD.md)**；该文件中的数字均取自
+[evidence/receipts/](evidence/receipts/) 里的平台回执原件，可直接复算。
 
-- [交付版 0.4.2 的 C 首轮训练预算对照](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
-- [0.4.1 联合方案本地逐轮复测](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
-- [B 任务 R12 三轮历史记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
+- [交付版 0.4.2 的 C 首轮训练记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
+- [0.4.2 本地 2 核 / 4 GiB 十轮预检](https://swanlab.cn/@sxb/rsi-abc-harness/runs/q96vjrsk)
+- [0.4.1 联合方案本地复测](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
+- [B 任务本地三轮记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
 - [前期 B 任务优化（队友 `jpc25`）](https://swanlab.cn/@jpc25/cpu-b-rul-harness)
+
+以上项目均为公开状态，未登录可直接打开。
 
 ## 声明
 

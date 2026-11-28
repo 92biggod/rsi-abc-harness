@@ -1,0 +1,900 @@
+{
+ "dataset_family": "uci-gas-drift",
+ "metadata_complete": true,
+ "metric": "macro_f1",
+ "metric_direction": "higher",
+ "primary_dataset_key": "A",
+ "report": {
+  "costs": {
+   "completion_tokens": 960,
+   "prompt_tokens": 11557,
+   "total_tokens": 12517,
+   "training_seconds": 1093.8776330132969
+  },
+  "metrics": {
+   "accuracy": 0.4959066721244372,
+   "macro_f1": 0.40682303755171434
+  },
+  "model_identity": "base:mspec_jteql2l9ilun",
+  "prediction_count": 4886,
+  "submission_id": "c96593b28ac824dbe9a8e01ec90238ee",
+  "training_complete": true,
+  "usage_settled": true,
+  "workspace_report": {
+   "datasets": [
+    {
+     "cpu_accounting_status": "measured",
+     "cpu_seconds": 799.286539695,
+     "key": "A",
+     "metrics": {
+      "accuracy": 0.4959066721244372,
+      "macro_f1": 0.40682303755171434
+     },
+     "prediction_count": 4886,
+     "record_complete": true,
+     "rounds": [
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "d06caee6-586c-4083-a013-5dafcb3b9bb7",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-01",
+       "model_call_ids": [
+        "d06caee6-586c-4083-a013-5dafcb3b9bb7"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 1,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-01",
+       "validation_metrics": {
+        "accuracy": 0.8786173633440515,
+        "macro_f1": 0.7140297220788708
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "e4a2ce95-eca8-4795-9542-fbaf53343c2d",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-02",
+       "model_call_ids": [
+        "e4a2ce95-eca8-4795-9542-fbaf53343c2d"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 2,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-01",
+       "validation_metrics": {
+        "accuracy": 0.8786173633440515,
+        "macro_f1": 0.7140297220788708
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "30aa3113-46b7-49c3-9535-718ceb98588e",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-03",
+       "model_call_ids": [
+        "30aa3113-46b7-49c3-9535-718ceb98588e"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 3,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-02",
+       "validation_metrics": {
+        "accuracy": 0.8760029175784099,
+        "macro_f1": 0.69694269592798
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "cae41cc7-8ac8-4afa-897a-d645ae81b0d4",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-04",
+       "model_call_ids": [
+        "cae41cc7-8ac8-4afa-897a-d645ae81b0d4"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 4,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-02",
+       "validation_metrics": {
+        "accuracy": 0.8760029175784099,
+        "macro_f1": 0.69694269592798
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "455a2e4a-629b-40ce-a104-9c418c1f2e50",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-05",
+       "model_call_ids": [
+        "455a2e4a-629b-40ce-a104-9c418c1f2e50"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 5,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-03",
+       "validation_metrics": {
+        "accuracy": 0.8735549132947977,
+        "macro_f1": 0.6912872643181651
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "f233f08c-94a2-4a6c-8a36-0be9fee015ce",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-06",
+       "model_call_ids": [
+        "f233f08c-94a2-4a6c-8a36-0be9fee015ce"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 6,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-04",
+       "validation_metrics": {
+        "accuracy": 0.8728571428571429,
+        "macro_f1": 0.69043793407007
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "f0daeabc-d062-434a-a4ef-f54a28fbc617",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-07",
+       "model_call_ids": [
+        "f0daeabc-d062-434a-a4ef-f54a28fbc617"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 7,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-05",
+       "validation_metrics": {
+        "accuracy": 0.8263888888888888,
+        "macro_f1": 0.6028565466504725
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "f2a31248-3174-4325-b774-04c38bf09ebd",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-08",
+       "model_call_ids": [
+        "f2a31248-3174-4325-b774-04c38bf09ebd"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 8,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-06",
+       "validation_metrics": {
+        "accuracy": 0.7688200747463961,
+        "macro_f1": 0.5686746833622189
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "7b0ebb12-7a2e-4287-a123-6058bb8e0024",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-09",
+       "model_call_ids": [
+        "7b0ebb12-7a2e-4287-a123-6058bb8e0024"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 9,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-07",
+       "validation_metrics": {
+        "accuracy": 0.7638376383763837,
+        "macro_f1": 0.5649528995600875
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "f0b21c66-2cb9-4c59-9cdb-22a7ca27249b",
+        "parent": "baseline-cpu-a-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-A-round-10",
+       "model_call_ids": [
+        "f0b21c66-2cb9-4c59-9cdb-22a7ca27249b"
+       ],
+       "parent_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 10,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-a-guide-20261110-v1",
+       "stage_id": "A-stage-08",
+       "validation_metrics": {
+        "accuracy": 0.7545219638242894,
+        "macro_f1": 0.558880177006263
+       }
+      }
+     ],
+     "wall_seconds": 1191.5149489450268
+    },
+    {
+     "cpu_accounting_status": "measured",
+     "cpu_seconds": 217.67376940599996,
+     "key": "B",
+     "metrics": {
+      "mae": 518.7210195353114,
+      "rmse": 720.0659352456747
+     },
+     "prediction_count": 200,
+     "record_complete": true,
+     "rounds": [
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "a1719f5d-034d-4391-b5b7-f5c61e2e3e74",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-01",
+       "model_call_ids": [
+        "a1719f5d-034d-4391-b5b7-f5c61e2e3e74"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 1,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-01",
+       "validation_metrics": {
+        "mae": 563.1058414514886,
+        "rmse": 681.1598326043113
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "39db2301-3693-450f-998c-951b1de01807",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-02",
+       "model_call_ids": [
+        "39db2301-3693-450f-998c-951b1de01807"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 2,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-01",
+       "validation_metrics": {
+        "mae": 563.1058414514886,
+        "rmse": 681.1598326043113
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "91c6de70-0f28-4fb3-bab2-fe29c3fc7276",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-03",
+       "model_call_ids": [
+        "91c6de70-0f28-4fb3-bab2-fe29c3fc7276"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 3,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-01",
+       "validation_metrics": {
+        "mae": 563.1058414514886,
+        "rmse": 681.1598326043113
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "323772c4-449b-4927-b056-4731ba9cc5d4",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-04",
+       "model_call_ids": [
+        "323772c4-449b-4927-b056-4731ba9cc5d4"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 4,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-01",
+       "validation_metrics": {
+        "mae": 563.1058414514886,
+        "rmse": 681.1598326043113
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "f9c2b824-c317-49d3-a852-6b85130dc857",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-05",
+       "model_call_ids": [
+        "f9c2b824-c317-49d3-a852-6b85130dc857"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 5,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-02",
+       "validation_metrics": {
+        "mae": 563.3436521135543,
+        "rmse": 681.3749734320234
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "1f96db67-4097-4e4c-9dc8-96f6a3be8122",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-06",
+       "model_call_ids": [
+        "1f96db67-4097-4e4c-9dc8-96f6a3be8122"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 6,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-02",
+       "validation_metrics": {
+        "mae": 563.3436521135543,
+        "rmse": 681.3749734320234
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "2c6db42c-d3ef-47e1-9310-c802c208acd6",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-07",
+       "model_call_ids": [
+        "2c6db42c-d3ef-47e1-9310-c802c208acd6"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 7,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-02",
+       "validation_metrics": {
+        "mae": 563.3436521135543,
+        "rmse": 681.3749734320234
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "026fdf47-5c0c-458e-b05d-295c247e79aa",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-08",
+       "model_call_ids": [
+        "026fdf47-5c0c-458e-b05d-295c247e79aa"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 8,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-03",
+       "validation_metrics": {
+        "mae": 563.9284217215087,
+        "rmse": 683.7282185680482
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "4dc35b3e-bb11-4a53-984d-4b0a9e9b20ec",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-09",
+       "model_call_ids": [
+        "4dc35b3e-bb11-4a53-984d-4b0a9e9b20ec"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 9,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-03",
+       "validation_metrics": {
+        "mae": 563.9284217215087,
+        "rmse": 683.7282185680482
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "b278e7cf-da52-4506-8fdd-5e1b278701a2",
+        "parent": "baseline-cpu-b-rul-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-B-round-10",
+       "model_call_ids": [
+        "b278e7cf-da52-4506-8fdd-5e1b278701a2"
+       ],
+       "parent_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 10,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-b-rul-20261110-v1",
+       "stage_id": "B-stage-03",
+       "validation_metrics": {
+        "mae": 563.9284217215087,
+        "rmse": 683.7282185680482
+       }
+      }
+     ],
+     "wall_seconds": 545.08034604555
+    },
+    {
+     "cpu_accounting_status": "measured",
+     "cpu_seconds": 1065.601510279,
+     "key": "C",
+     "metrics": {
+      "mae": 41.28656743304996,
+      "nasa_score": 42594777435.81236,
+      "rmse": 56.2259246301995
+     },
+     "prediction_count": 9687,
+     "record_complete": true,
+     "rounds": [
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "f8bb3df8-f1cf-4085-8bbe-1f7720776029",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-01",
+       "model_call_ids": [
+        "f8bb3df8-f1cf-4085-8bbe-1f7720776029"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 1,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-01",
+       "validation_metrics": {
+        "mae": 38.89982982666355,
+        "nasa_score": 5823439325.3424635,
+        "rmse": 52.86857256611151
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "dba7a7a5-99df-4654-8342-410d09b99b52",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-02",
+       "model_call_ids": [
+        "dba7a7a5-99df-4654-8342-410d09b99b52"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 2,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-01",
+       "validation_metrics": {
+        "mae": 38.89982982666355,
+        "nasa_score": 5823439325.3424635,
+        "rmse": 52.86857256611151
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "3b0ce4a3-2673-4be5-80b7-757766ee37f6",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-03",
+       "model_call_ids": [
+        "3b0ce4a3-2673-4be5-80b7-757766ee37f6"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 3,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-01",
+       "validation_metrics": {
+        "mae": 38.89982982666355,
+        "nasa_score": 5823439325.3424635,
+        "rmse": 52.86857256611151
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "1621e4bc-11d0-4b1b-b0ca-e725f7fe29db",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-04",
+       "model_call_ids": [
+        "1621e4bc-11d0-4b1b-b0ca-e725f7fe29db"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 4,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-02",
+       "validation_metrics": {
+        "mae": 38.881523661313544,
+        "nasa_score": 5824256521.088183,
+        "rmse": 52.82258998028072
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "be5c684e-300d-47f2-bb87-8d480d9a3602",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-05",
+       "model_call_ids": [
+        "be5c684e-300d-47f2-bb87-8d480d9a3602"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 5,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-02",
+       "validation_metrics": {
+        "mae": 38.881523661313544,
+        "nasa_score": 5824256521.088183,
+        "rmse": 52.82258998028072
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "bb789f6a-d764-4f01-b1f0-b55b54129f15",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-06",
+       "model_call_ids": [
+        "bb789f6a-d764-4f01-b1f0-b55b54129f15"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 6,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-02",
+       "validation_metrics": {
+        "mae": 38.881523661313544,
+        "nasa_score": 5824256521.088183,
+        "rmse": 52.82258998028072
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "0a4b0fc4-3cf2-463b-921a-0f67935d92ea",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-07",
+       "model_call_ids": [
+        "0a4b0fc4-3cf2-463b-921a-0f67935d92ea"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 7,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-03",
+       "validation_metrics": {
+        "mae": 38.74276876389008,
+        "nasa_score": 5824964964.002322,
+        "rmse": 52.61190881745235
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "999070c8-6c95-47e7-955c-a254e038c233",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-08",
+       "model_call_ids": [
+        "999070c8-6c95-47e7-955c-a254e038c233"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 8,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-03",
+       "validation_metrics": {
+        "mae": 38.74276876389008,
+        "nasa_score": 5824964964.002322,
+        "rmse": 52.61190881745235
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "9819f25b-df86-4e8d-9da2-930dfa6ed760",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-09",
+       "model_call_ids": [
+        "9819f25b-df86-4e8d-9da2-930dfa6ed760"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 9,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-04",
+       "validation_metrics": {
+        "mae": 38.87069512457753,
+        "nasa_score": 8520555852.318154,
+        "rmse": 52.86479866253311
+       }
+      },
+      {
+       "change_summary": "baseline control: retain the platform parent artifact unchanged.",
+       "configuration": {
+        "baseline_control": true,
+        "decision_call": "85b48b98-aa53-477c-b039-2087d8870029",
+        "parent": "baseline-cpu-c-guide-20261110-v1",
+        "trained_steps": 0
+       },
+       "decision": "retain",
+       "history_ids": [],
+       "hypothesis": "对照组：本轮不训练，直接沿用平台下发的官方 baseline 父产物。",
+       "id": "2836cd994dd1bb408f86b1c7fd8c2008-C-round-10",
+       "model_call_ids": [
+        "85b48b98-aa53-477c-b039-2087d8870029"
+       ],
+       "parent_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "reason": "BASELINE_CONTROL 对照运行：本轮不训练，保留父模型，用于测量 baseline 在隐藏集上的分数。",
+       "round_index": 10,
+       "seed": 1,
+       "selected_artifact_id": "baseline-cpu-c-guide-20261110-v1",
+       "stage_id": "C-stage-04",
+       "validation_metrics": {
+        "mae": 38.87069512457753,
+        "nasa_score": 8520555852.318154,
+        "rmse": 52.86479866253311
+       }
+      }
+     ],
+     "wall_seconds": 1239.117823405657
+    }
+   ],
+   "selection_owner": "participant"
+  }
+ },
+ "run": {
+  "attempt": 1,
+  "contest_stage": "enterprise",
+  "created_at": "2026-11-27T14:32:54.43241Z",
+  "eligible": false,
+  "failure_detail": "",
+  "failure_kind": "",
+  "failure_reason": "",
+  "hard_deadline": null,
+  "id": "2836cd994dd1bb408f86b1c7fd8c2008",
+  "mode": "trial",
+  "score": null,
+  "status": "completed",
+  "submission_id": "c96593b28ac824dbe9a8e01ec90238ee",
+  "submission_version": 5,
+  "trial_kind": "legacy",
+  "trial_note": "确认执行完整训练流程。本版为对照组（BASELINE_CONTROL=1）：每轮仅调用一次模型决策、不训练，直接保留平台父产物，用于测量官方 baseline 在隐藏集上的分数。",
+  "updated_at": "2026-11-27T14:56:37.1109Z"
+ },
+ "target_unit": "class",
+ "task": "classification",
+ "workspace_suite": {
+  "datasets": [
+   {
+    "key": "A",
+    "label_status": "draft"
+   },
+   {
+    "key": "B",
+    "label_status": "approved"
+   },
+   {
+    "key": "C",
+    "label_status": "draft"
+   }
+  ],
+  "rounds": 10
+ }
+}

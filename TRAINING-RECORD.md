@@ -1,10 +1,14 @@
 # 训练记录（0.4.2）
 
-- [交付版 0.4.2 的 C 首轮训练预算对照](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh)
-- [0.4.2 本地 2 核 / 4 GiB 十轮预检](https://swanlab.cn/@sxb/rsi-abc-harness/runs/q96vjrsk)
-- [0.4.1 联合方案本地逐轮复测](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot)
-- [B 任务 R12 三轮历史记录](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart)
-- [前期 B 任务优化（队友 `jpc25`）](https://swanlab.cn/@jpc25/cpu-b-rul-harness)
+SwanLab 记录（均为公开项目，未登录可直接打开）。下表内容于 2026-11-28 在未登录状态下逐页实测：
+
+| 链接 | 页面标题 / 状态 | 页面上可见的内容 |
+|---|---|---|
+| [s07xeuwh](https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh) | ABC Harness 0.4.2 - C anchor，完成 | 图表 C 组 7 张（含 `C/public_rmse`）；A、B 组为空，该次只记录 C |
+| [q96vjrsk](https://swanlab.cn/@sxb/rsi-abc-harness/runs/q96vjrsk) | ABC 0.4.2 formal resource preflight，完成 | 卡片页记录 `image=zhixun-abc:0.4.2`、`submission_version=7`、`archive_sha256=2d3673fd…cf25`、`cpu_quota=2`、`memory_gib=4`；图表 A 组 7 张（`A/public_macro_f1` 等） |
+| [kvenydot](https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot) | ABC Harness 0.4.1 - local public，完成 | 图表 A 组 3 张（`A/promoted` 等） |
+| [abcbr12q](https://swanlab.cn/@sxb/rsi-abc-harness/runs/abcbr12q/chart) | B R12 local Qwen rounds，完成 | 标量组可见 `adopted` 曲线，3 个点，对应三轮 |
+| [jpc25 项目](https://swanlab.cn/@jpc25/cpu-b-rul-harness) | cpu-b-rul-harness，标注「公开」 | 4 个实验，全部完成 |
 
 ---
 
@@ -21,6 +25,8 @@
 | A | Macro-F1 | 0.4068 | **0.7753** | +90.6% |
 
 「官方基线」列取自对照运行 v5（`trial/2836cd99`）。该镜像设为 `BASELINE_CONTROL=1`，每轮直接保留平台下发的父产物。
+因此 v5 的 `costs.training_seconds`（1,093.9 秒）是容器空转与评测开销，不与 v7 的训练时长比较。
+两份回执的原始 JSON 均已附在 [evidence/receipts/](evidence/receipts/)，下文数字可直接复算。
 
 v7 回执（`trial/fb2c2573`）的任务 CPU 用量为 A 1,094.4 秒、B 430.9 秒、C 2,059.8 秒。
 回执 `costs.training_seconds` 字段为 2,435.4 秒，模型调用共 43,897 token（提示 37,936，生成 5,961）。
@@ -57,6 +63,24 @@ A、B、C 各 10 轮的回执均记录了 `swanlab_enabled = true`。
 父 RMSE 来自当轮公开验证。第 4、7、9 轮切换数据阶段，首轮采纳的同一份检查点在不同验证切片上得分有变化。
 镜像内最佳候选取自回执配置中的 `best_observed`。只有通过镜像内筛选并提交的产物才有平台候选分。
 第 2 至 10 轮均保留首轮检查点，第 6 轮执行 `hold`。该检查点的最终隐藏集 RMSE 为 52.6688。
+
+### 数据来源（可复算）
+
+上表与第 1 节的每个数字都取自平台回执，原始 JSON 已附在仓库内，无需重跑镜像即可核对：
+
+- [交付版 v7 回执](evidence/receipts/trial-fb2c2573.json)：`run fb2c2573…`，提交版本 7
+- [对照组 v5 回执](evidence/receipts/trial-2836cd99.json)：`run 2836cd99…`，`BASELINE_CONTROL=1`
+- 字段对应关系与脱敏说明见 [evidence/receipts/README.md](evidence/receipts/README.md)
+
+| 表中列 | 回执字段 |
+|---|---|
+| 隐藏集 RMSE / MAE / NASA 分 | `report.workspace_report.datasets[key].metrics` |
+| 方案 / epoch / 训练秒 | `…datasets[key].rounds[i].configuration.plan` / `.epochs_done` / `.training_seconds` |
+| 父 RMSE | `…rounds[i].configuration.parent.rmse` |
+| 镜像内最佳候选 | `…rounds[i].configuration.best_observed.candidate.rmse` |
+| 决策 | `…rounds[i].decision` |
+
+回执中已去除 `run.team_name`、`run.team_id` 两个字段，其余为接口原样响应。
 
 ---
 
@@ -138,11 +162,11 @@ C 镜像内固定使用 `OMP_NUM_THREADS=1 / OPENBLAS_NUM_THREADS=1 / MKL_NUM_TH
 
 | 项 | 值 |
 |---|---|
+| 交付版回执 v7 | [evidence/receipts/trial-fb2c2573.json](evidence/receipts/trial-fb2c2573.json)，`fb2c2573…`，`costs.training_seconds` 2,435.4 秒，模型调用 43,897 token |
+| 对照组回执 v5 | [evidence/receipts/trial-2836cd99.json](evidence/receipts/trial-2836cd99.json)，`2836cd99…`，`BASELINE_CONTROL=1`，C 56.2259 |
 | 提交镜像 harness.tar | 85,893,120 字节，SHA-256 `2d3673fd862f2986048cbc534590c854ba9aa901e52974cc6f7fc615431fcf25` |
 | 官方 SDK | 1.0.5，`bb5c616081de975d8f932a20cc00fd489e701e7585b69fdb52982bd669a305e6` |
 | 源码清单 | [evidence/source-sha256.json](evidence/source-sha256.json)，29 个文件全部可复算 |
-| v7 回执 | `trial/fb2c2573`，`costs.training_seconds` 为 2,435.4 秒，模型调用共 43,897 token |
-| v5 对照回执 | `trial/2836cd99`，`BASELINE_CONTROL=1`，C 56.2259 |
 | 前期 B 最佳检查点 | `4798c31912c64061e6e3c3b2b78a05a3cad7213cfe72e2fb5dcf42caf6f50def` |
 
 ---
