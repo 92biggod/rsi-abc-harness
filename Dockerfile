@@ -6,10 +6,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     OPENBLAS_NUM_THREADS=4 \
     MKL_NUM_THREADS=4
 
-ADD sdk/contest-harness-sdk-1.0.4.tar.gz /tmp/
+ADD sdk/contest-harness-sdk-1.0.5.tar.gz /tmp/
+# swanlab 是《实验记录规范》的必需依赖：每轮训练要落一个 offline run 到
+# $CONTEST_WORK/swanlab-logs，赛后用 `swanlab sync` 回放。
+# 0.3.0 镜像漏装了这个包，sw_init() 一直走 except 静默跳过，20 轮训练零记录。
 RUN python3 -m pip install --no-cache-dir --only-binary=:all: numpy==2.5.5 \
-    && python3 -m pip install --no-cache-dir /tmp/contest-harness-sdk-1.0.4 \
-    && rm -rf /tmp/contest-harness-sdk-1.0.4 \
+    && python3 -m pip install --no-cache-dir swanlab==0.10.6 \
+    && python3 -c "import swanlab; print('swanlab', swanlab.__version__)" \
+    && python3 -m pip install --no-cache-dir /tmp/contest-harness-sdk-1.0.5 \
+    && rm -rf /tmp/contest-harness-sdk-1.0.5 \
     && mkdir -p /workspace \
     && chown 65534:65534 /workspace
 

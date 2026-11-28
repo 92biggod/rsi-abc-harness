@@ -1,5 +1,4 @@
 {
-  "Dockerfile": "ec06bdad86785b125a40ecaa6e74bee9f10b3e9612fde4d0d2ca17b6483d90b1",
   "app/a/baselines/__init__.py": "3363d6112a78e5b4de3508da13e543708fc6a9019c65f3c8bcecb5178a321d7a",
   "app/a/baselines/configs/A.json": "a358949911cfcb38b5d483acad41843243fe264b26f0470e1c64c495da4ab202",
   "app/a/baselines/data.py": "6099e312829ac3aaf48209ec1f618532c4a8552fedf73f09cf31c8876261db65",
@@ -9,7 +8,7 @@
   "app/a/baselines/requirements.txt": "e77e7045d01a9431264f9262c6b199d8e7988c139276a5266a3cf689588ad66e",
   "app/a/baselines/response_shape.py": "c58bc042f38b00495c229fbd906b73af5a7975008a19a570ff9b336af386385d",
   "app/a/baselines/train.py": "61fcee307601cd6f7b45b1a451bb4357ac0a19ede12320c8668a4f4722b64d4a",
-  "app/a/contest_submission.py": "882e005e38cadebf9b1326b809821d5514fdf34511bcfb9b5c0766ff47d57efe",
+  "app/a/contest_submission.py": "ab7f4deddb2184713e9f98e2b2c6538145c7a70f1b59b3565e0c70d6d3ac74ad",
   "app/b/baselines/__init__.py": "a440f312d786f2fae60f48cc78be857e93f3bfbc14e2361fe18444f50cf928c4",
   "app/b/baselines/anchor.py": "8254fdf964a26c9714a3cc3852679c985a22ea53894c44eab9126eeca2cafc25",
   "app/b/baselines/compact_decision.py": "8d10330b9c887c03b5eaf1cfa38b78f016f32d432c78ed15130499d0b1a11872",
@@ -25,8 +24,8 @@
   "app/b/baselines/rul.py": "34f92c0a8f6ab79f2fcb8758441115921327be25e6930b54b5998aae5201b921",
   "app/b/baselines/single.py": "d6c38ca36fa28d3ccfbbac21e5052bf2364d2e8eb4f9dae91b27877950e24db7",
   "app/b/baselines/stages.py": "e546a3ee96dfae074afdc0e6ebc35f7731159222344f2faebb7e5cc074ff435b",
-  "app/b/contest_submission.py": "97e398f2b5c6a928209b578f566786c3a5d30a1a60feae1a040f4a14e9cb05af",
-  "app/c/contest_submission.py": "5d038b526b5295876fe7bd18d8f9c317d0074ddaa36c298616fcf8b818fa41a5",
+  "app/b/contest_submission.py": "a113f7e2869106578f8a30f63bd04db7d25706027f39c2bedf7f2b1e65540e49",
+  "app/c/contest_submission.py": "323741ba5d0673b61d7170683bc236f5f29722611262dfec8a24ab2f77ec4e04",
   "app/contest_submission.py": "2536702649c34e0a4f59fb644f31140f5961d213c1361d9a1a6345f038b3de5e",
   "app/harness.py": "6ef17e7dfd73558daf8464f7be8b1e963ccf103c76638c623911ec5c334c93f5"
 }

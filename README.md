@@ -1,37 +1,93 @@
-# 三任务工业预测 Harness
+# 三任务工业预测 Harness（0.4.2）
 
-本仓库对应参赛镜像 `zhixun-abc:0.3.0`，包括 A 组气体分类、B 组轴承寿命 R12、C 组发动机寿命 R7。
-训练通过平台宿主读取父检查点和历史，预测通过同一镜像的独立入口运行。
+本仓库对应参赛镜像 `zhixun-abc:0.4.2`：一个 Linux/amd64 镜像同时承接 **A**（六类气体识别）、
+**B**（轴承剩余寿命）、**C**（C-MAPSS 涡扇发动机剩余寿命）。三项任务都从平台下发的父检查点续训，
+镜像内不携带任何预训练权重。
 
-## 构建与检查
+- 官方 Harness SDK：`1.0.5`
+- 运行时依赖：`numpy==2.5.5`、`swanlab==0.10.6`（实验记录，离线落盘）
+- 提交镜像 `harness.tar`：85,893,120 字节，SHA-256 `2d3673fd862f2986048cbc534590c854ba9aa901e52974cc6f7fc615431fcf25`
 
-从赛事平台取得官方 `contest-harness-sdk-1.0.4.tar.gz`，放在仓库根目录下的 `sdk/`。
-本版本使用的 SDK 压缩包 SHA-256 为 `7afd282d6b5fd889d64d0515a67d169806970e36200689b18d2040026167a4af`。
-在仓库根目录执行以下命令。
+## 结果
 
-```sh
-docker build --platform linux/amd64 -t zhixun-abc:0.3.0 .
-docker run --rm --network none zhixun-abc:0.3.0 describe
-docker save -o harness-abc-0.3.0.tar zhixun-abc:0.3.0
+下表全部来自赛事平台回执，使用同一套隐藏评测集（企业赛阶段试运行与正式评测同集）。
+「官方基线」一行是**镜像不训练、直接保留父产物**的对照运行，用于把「基线本身有多难」与「我们的增量」分开。
+
+| 任务 | 指标 | 官方基线（对照运行 v5） | 本版本（v7） | 变化 |
+|---|---|---:|---:|---|
+| C（主指标） | RMSE | 56.2259 | **52.6688** | −6.33% |
+| C | MAE | 41.2866 | 37.4149 | −9.38% |
+| C | NASA 非对称分 | 4.259e10 | 1.178e10 | −72.4% |
+| B | RMSE（分钟） | 720.066 | **489.166** | −32.1% |
+| B | MAE（分钟） | 518.721 | 375.873 | −27.5% |
+| A | Macro-F1 | 0.4068 | **0.7753** | +90.6% |
+| A | Accuracy | 0.4959 | 0.7839 | +58.1% |
+
+- v7 回执：`trial/fb2c2573`，2026-11-28 03:52Z，状态 completed，`training_complete = true`，`usage_settled = true`
+- 对照回执：`trial/2836cd99`，2026-11-27 14:32Z（`BASELINE_CONTROL=1`，镜像不训练）
+
+资源用量（v7 回执）：C 2059.8 CPU 秒、B 430.9、A 1094.4，训练总时长 2435.4 秒；模型调用 43,897 token。
+
+## 本地 2 核 / 4 GiB 十轮预检
+
+正式评测最低 2 核 / 4 GiB，而试运行给的是 16 核，因此额外在受限容器（只读、断网、`--cpus=2 --memory=4g`）
+里用同一份 0.4.2 镜像跑完 A、B、C 各 10 轮：
+
+| 项 | 结果 |
+|---|---|
+| 串行总墙钟 | 338.9 秒（5 分 39 秒） |
+| C 十轮墙钟 | 243.7 秒 |
+| 峰值内存 | 860,450,816 字节（821 MiB） |
+| C 首轮 | 200 epoch，24.67 秒，选中 1 个成员 |
+| 轮次超时 | 无（`c_timed_out = false`） |
+| 内存超限 | 无 |
+
+C 十轮全部选中单成员；第 6 轮按策略保留父模型（0 训练步）。复现的公开验证 RMSE 为 46.1248。
+
+## 构建
+
+从赛事平台取得官方 `contest-harness-sdk-1.0.5.tar.gz`，放在仓库根目录的 `sdk/` 下：
+
+```
+sdk/contest-harness-sdk-1.0.5.tar.gz
+sha256 bb5c616081de975d8f932a20cc00fd489e701e7585b69fdb52982bd669a305e6
 ```
 
-镜像入口为 `/app/harness.py`，分发逻辑在 `app/contest_submission.py`。A、B、C 的实现分别在
-`app/a/`、`app/b/`、`app/c/`。数据和父检查点由赛事平台提供。程序文件已逐字节核对导出的镜像，
-源码及 Dockerfile 的摘要见 [source-sha256.json](evidence/source-sha256.json)。
+SDK 压缩包按赛事规则不在本仓库分发，仅给出摘要供核对。
 
-## 公开验证与训练记录
+```sh
+docker build --platform linux/amd64 -t zhixun-abc:0.4.2 .
+docker run --rm --network none zhixun-abc:0.4.2 describe
+docker save -o harness-abc-0.4.2.tar zhixun-abc:0.4.2
+```
 
-| 方法 | 公开验证结果 | 样本数 |
-|---|---|---:|
-| A 预设方案重放 | Macro-F1 0.934611 | 1,244 |
-| A 本地 5090 自主决策 | Macro-F1 0.921593 | 1,244 |
-| B R12 本地 10 轮续训 | RMSE **428.1466**（第 2 轮 428.2294） | 1,679 |
-| C R7 四成员 | RMSE **45.9189** | 23,049 |
+镜像入口为 `/app/harness.py`，分发逻辑在 `app/contest_submission.py`，三个任务的实现分别在
+`app/a/`、`app/b/`、`app/c/`。源码与镜像逐字节核对的摘要见
+[evidence/source-sha256.json](evidence/source-sha256.json)（29 个文件，全部可复算）。
 
-逐轮轨迹（每轮父模型、候选分数、是否采纳）与前期 4 条实验的原始导出见
-**[TRAINING-RECORD.md](TRAINING-RECORD.md)**。
+## 设计要点
 
-[SwanLab 实验索引](https://swanlab.cn/@sxb/rsi-abc-harness) 汇集本版本已有的记录。
-A 的两次实验和 B R12 的逐轮指标来自队友交付文件，可在 [ab-rounds.json](evidence/ab-rounds.json)
-中查到来源摘要。C 的 [R7 采纳配方](https://swanlab.cn/@sxb/rsi-abc-harness/runs/cx2gt2cb) 从原始离线运行同步。
-平台封闭评测结果以正式回执为准。
+| 决策 | 依据 |
+|---|---|
+| C 首轮上限 200 epoch（此前 432） | 选中 epoch 为第 159 个，继续训到 432 不改善指标，只增加耗时。v6→v7 首轮平台耗时 240.20 秒 → 124.86 秒，隐藏 RMSE 完全相同（52.6688） |
+| C 部署单成员 | 2 核预算下多成员的墙钟代价超过增益；十轮实测每轮都只选 1 个成员 |
+| BLAS 线程固定为 1 | 2 核下 1 线程与 2 线程的 15-epoch 墙钟都是约 1.42 秒，但 2 线程的 CPU 用时接近翻倍；4 线程在 2 核上反而慢到 2.50 秒 |
+| 父/候选在同一份当轮验证集上比较 | 平台不回传候选真实分数，必须现算，否则每轮都会误判为「缺少有效测量」而保留父模型 |
+| 每轮落一个 swanlab offline run | 《实验记录规范》要求；`swanlab_enabled` 写进回执 configuration，失败可被评审直接看到 |
+| 父检查点文件全量声明 | 少声明一个成员会触发 `PARENT_FILE_NOT_DECLARED`，整轮失败 |
+
+## 训练记录
+
+逐轮父/候选分数、决策、耗时与两版对照见 **[TRAINING-RECORD.md](TRAINING-RECORD.md)**。
+
+- 交付版（0.4.2，公开）：https://swanlab.cn/@sxb/rsi-abc-harness/runs/s07xeuwh
+- 0.4.1 联合方案逐轮记录：https://swanlab.cn/@sxb/rsi-abc-harness/runs/kvenydot
+- 前期 B 任务优化（队友 `jpc25`，私有）：https://swanlab.cn/@jpc25/cpu-b-rul-harness
+
+## 声明
+
+- 提交表单声明的基础模型为 `Qwen/Qwen3.8-27B`（处于参数量不超过 27B 的限制内）。
+- 评分路径是确定性数值算法：C 为 833 参数 MLP 的续训与后处理，A/B 为父检查点上的确定性策略序列。
+  **模型的生成内容不作为任何预测结果的来源**，镜像只按平台协议保留模型调用能力。
+- 训练数据仅使用平台下发的官方训练集与父检查点；未引入外部数据，未使用验证集标签训练。
+- 镜像内不含任何训练好的权重，全部结果由平台 10 轮续训产生，符合「必须基于父检查点续训」的约束。

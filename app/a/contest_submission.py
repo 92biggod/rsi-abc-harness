@@ -108,6 +108,35 @@ def macro_f1(summary):
     return None
 
 
+def _sw_init(name, config):
+    """《实验记录规范》：每轮训练落一个 SwanLab offline run。
+    0.3.0 镜像漏装 swanlab，异常又被吞掉，导致全程零记录；现在失败也会在 config 里留痕。"""
+    try:
+        import swanlab
+        log_dir = str(Path(os.environ.get("CONTEST_WORK", "/workspace")) / "swanlab-logs")
+        Path(log_dir).mkdir(parents=True, exist_ok=True)
+        swanlab.init(mode="offline", project="zhixun-a", name=name, log_dir=log_dir, config=config)
+        return True
+    except Exception:
+        return False
+
+
+def _sw_log(payload):
+    try:
+        import swanlab
+        swanlab.log(payload)
+    except Exception:
+        pass
+
+
+def _sw_finish():
+    try:
+        import swanlab
+        swanlab.finish()
+    except Exception:
+        pass
+
+
 def train(rnd):
     if rnd.dataset_key != "A" or rnd.task["task"] != "classification":
         raise ValueError("Expected the A gas classification contract")
@@ -193,6 +222,14 @@ def train(rnd):
         reason = f"{parent_source}父模型 Macro-F1={before:.6f}，平台候选={measured}，{selection}。"
         config.update(selection=selection, parent_score=before, parent_score_source=parent_source,
                       measured_candidate_score=after)
+        # 实验记录：config 完整落盘 + 父子对比曲线（train_run 内部无逐 epoch 钩子，故记端点）
+        config["swanlab_enabled"] = _sw_init(f"A-round-{rnd.round_index}", config)
+        if config["swanlab_enabled"]:
+            _sw_log({"epoch": report["final_epochs"],
+                     "parent/macro_f1": before,
+                     "candidate/macro_f1": after if after is not None else float("nan"),
+                     "adopted": 1.0 if adopt else 0.0})
+        _sw_finish()
         rnd.finish(selected_artifact_id=selected, configuration=config, reason=reason, **declaration)
 
 

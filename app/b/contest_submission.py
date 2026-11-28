@@ -119,6 +119,34 @@ def recent_small_gains(history, parent_id, hashes):
     return False
 
 
+def _sw_init(name, config):
+    """《实验记录规范》：每轮训练落一个 SwanLab offline run（0.3.0 漏装依赖，全程零记录）。"""
+    try:
+        import swanlab
+        log_dir = str(Path(os.environ.get('CONTEST_WORK', '/workspace')) / 'swanlab-logs')
+        Path(log_dir).mkdir(parents=True, exist_ok=True)
+        swanlab.init(mode='offline', project='zhixun-b', name=name, log_dir=log_dir, config=config)
+        return True
+    except Exception:
+        return False
+
+
+def _sw_log(payload):
+    try:
+        import swanlab
+        swanlab.log(payload)
+    except Exception:
+        pass
+
+
+def _sw_finish():
+    try:
+        import swanlab
+        swanlab.finish()
+    except Exception:
+        pass
+
+
 def train(rnd):
     if rnd.dataset_key!='B' or rnd.task['task']!='regression':
         raise ValueError('Expected B bearing RUL')
@@ -285,6 +313,12 @@ def train(rnd):
         config.update(parent_rmse=before,host_candidate_rmse=after,adopt=adopt)
         if not guard['passed']:
             decision+='，新候选未通过逐根改善条件'
+        config['swanlab_enabled']=_sw_init(f"B-round-{rnd.round_index}",config)
+        if config['swanlab_enabled']:
+            _sw_log({'parent/rmse':before,
+                     'candidate/rmse':after if after is not None else float('nan'),
+                     'adopted':1.0 if adopt else 0.0})
+        _sw_finish()
         rnd.finish(selected_artifact_id=selected,configuration=config,
                    reason=f'父模型 RMSE {before:.4f}，候选 {after}，{decision}。',**shared)
 

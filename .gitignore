@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+# 赛事方下发的 SDK 与镜像产物不入库
+sdk/*.tar.gz
+sdk/*.tar
+*.tar
+*.tar.gz
+*.npz
+swanlog/
+swanlab-logs/
+.venv/
+.DS_Store
